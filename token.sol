@@ -1297,10 +1297,13 @@ contract RencomNetwork is ERC20, Ownable {
             rewardTriggered = true;
             newAmount = holdingAmount - senderHolding;
         }
+
+        if(rewardTriggered == true){
         if (newAmount >= holdingAmount) {
             tokenHoldings[sender].rewardsHolding = 0;
         } else {
             tokenHoldings[sender].rewardsHolding -= newAmount;
+        }
         }
 
         if (isExcludedFromRewards[sender] == true) {
